@@ -3,6 +3,9 @@ A shell script can be used to generate a Golang project that utilizes gRPC-gatew
 
 Using the `gen-grpc.sh` generator you can quickly get started with [grpc-gateway](https://grpc-ecosystem.github.io/grpc-gateway/#getting-started)
 
+
+Guide to use the script: [Automate gRPC-Gateway project generation in Golang with gen-grpc-gateway-api](https://akoserwal.medium.com/automate-grpc-gateway-project-generation-in-golang-with-gen-grpc-gateway-api-015759f1e51b_)
+
 ## Prerequisite
 * [golang](https://go.dev/doc/install)
 * [Install protoc](https://github.com/protocolbuffers/protobuf/releases)

@@ -168,6 +168,7 @@ import (
 	\"github.com/$DOMAIN_NAME/$PROJECT_NAME/internal\"
 	\"github.com/$DOMAIN_NAME/$PROJECT_NAME/protogen/golang/$SERVICE_NAME_LOWER_TR\"
     \"google.golang.org/grpc\"
+	\"google.golang.org/grpc/reflection\"
 )
 
 func main() {
@@ -180,6 +181,7 @@ func main() {
 	// create a gRPC server instance
 	server := grpc.NewServer()
 	// create a service instance with a reference to the db
+	reflection.Register(server)
 	
 	${SERVICE_NAME_LOWER_TR}Service := internal.New${SERVICE_NAME}Service()
 	// register the service with the grpc server

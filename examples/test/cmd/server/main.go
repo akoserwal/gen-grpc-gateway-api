@@ -6,6 +6,7 @@ import (
 	"github.com/akoserwal/test/internal"
 	"github.com/akoserwal/test/protogen/golang/hello"
     "google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 func main() {
@@ -18,6 +19,7 @@ func main() {
 	// create a gRPC server instance
 	server := grpc.NewServer()
 	// create a service instance with a reference to the db
+	reflection.Register(server)
 	
 	helloService := internal.NewHelloService()
 	// register the service with the grpc server
