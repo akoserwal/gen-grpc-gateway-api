@@ -1,7 +1,7 @@
 # gen-grpc-gateway-api
-A shell script to generate a golang project uses grpc-gateway and proto to expose a sample api.
+A shell script can be used to generate a Golang project that utilizes gRPC-gateway and proto to expose a sample API. By using the `gen-grpc.sh` generator, you can quickly get started with gRPC-gateway.
 
-Using the gen-grpc-gateway-api generator you can quickly get start with [grpc-gateway](https://grpc-ecosystem.github.io/grpc-gateway/#getting-started)
+Using the `gen-grpc.sh` generator you can quickly get started with [grpc-gateway](https://grpc-ecosystem.github.io/grpc-gateway/#getting-started)
 
 ## Prerequisite
 * [golang](https://go.dev/doc/install)
