@@ -1,0 +1,21 @@
+syntax = "proto3";
+option go_package = "github.com/akoserwal/test/hello";
+
+import "google/api/annotations.proto";
+
+service Hello {
+  rpc SayHello (HelloRequest) returns (HelloResponse) {
+    option (google.api.http) = {
+      get: "/v1/hello",
+    };
+  }
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
