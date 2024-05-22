@@ -1,5 +1,27 @@
 #!/bin/bash
 
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Check if golang is installed
+if command_exists go; then
+    echo "go is already installed."
+	echo `go version`
+else
+    echo "go is not installed. Please install go"
+	exit 1
+fi
+
+# Check if protoc is installed
+if command_exists protoc; then
+    echo "protoc is already installed."
+	echo `protoc --version`
+else
+    echo "protoc is not installed. Please install protoc"
+	exit 1
+fi
+
 # Function to check for errors
 error_check() {
   if [ $? -ne 0 ]; then
