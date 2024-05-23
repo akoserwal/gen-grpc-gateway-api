@@ -1,8 +1,44 @@
 #!/bin/bash
 
+show_help() {
+	echo "gen-grpc-gateway-api"
+    echo
+    echo "Usage: $0 [--help]"
+    echo
+    echo "Description:"
+    echo "  This script sets up a new Go project with gRPC and gRPC-Gateway."
+    echo
+    echo "Options:"
+    echo "  --help    Show this help message and exit."
+    echo
+    echo "Steps performed by the script:"
+    echo "  1. Check if Go and protoc are installed."
+    echo "  2. Prompt the user for project name, domain name, and service name."
+    echo "  3. Initialize a Go module and create the necessary directory structure."
+    echo "  4. Create a basic .proto file for the gRPC service."
+    echo "  5. Install required Go packages for gRPC and gRPC-Gateway."
+    echo "  6. Generate the Go code from the .proto file."
+    echo "  7. Create a Makefile to simplify building and running the project."
+    echo "  8. Create basic server and client Go files."
+    echo
+    echo "Example:"
+    echo "  $0"
+    exit 0
+}
+
+if [[ "$1" == "--help" ]]; then
+    show_help
+fi
+
+echo "gen-grpc-gateway-api"
+echo 
+echo "This script sets up a new Go project with gRPC and gRPC-Gateway."
+
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
+echo
+echo "=================================="
 
 # Check if golang is installed
 if command_exists go; then
@@ -22,6 +58,8 @@ else
 	exit 1
 fi
 
+echo "=================================="
+
 # Function to check for errors
 error_check() {
   if [ $? -ne 0 ]; then
@@ -30,6 +68,8 @@ error_check() {
   fi
 }
 
+
+echo 
 # Get project name from user
 read -p "Enter project name: " PROJECT_NAME
 
@@ -237,9 +277,18 @@ error_check "Failed to generate code"
 
 # Clean up temporary files (optional)
 # rm -rf *.pb.go *.gw.go
-
+echo 
 echo "Project '$PROJECT_NAME' created with grpc-gateway"
+echo
+echo "======================"
+echo "Run the gRPC Server"
 echo "cd $PROJECT_NAME"
 echo "make server"
+echo "======================"
+echo 
+echo "Run the API gateway Server"
 echo "make client"
+echo "======================"
+echo
+echo "Test the endpoint using curl"
 echo "curl '0.0.0.0:8080/v1/hello'"
